@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Book_Library</string>
+    <string name="welcome">Welcome to Book Library</string>
+    <string name="continue_with_google">Continue with google account</string>
 </resources>

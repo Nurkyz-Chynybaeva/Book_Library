@@ -1,6 +1,14 @@
 package com.example.book_library.ui.main_screen
 
-import androidx.fragment.app.Fragment
+import com.example.book_library.databinding.FragmentMainBinding
+import com.example.book_library.ui.base.BaseFragment
+import dagger.hilt.android.AndroidEntryPoint
 
-class MainFragment: Fragment() {
+@AndroidEntryPoint
+class MainFragment: BaseFragment<MainViewModel, FragmentMainBinding>(
+    MainViewModel::class.java,
+    {
+        FragmentMainBinding.inflate(it)
+    }
+) {
 }
