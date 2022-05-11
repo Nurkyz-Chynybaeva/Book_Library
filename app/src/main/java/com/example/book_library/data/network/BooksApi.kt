@@ -5,6 +5,6 @@ import io.reactivex.Single
 import retrofit2.http.GET
 
 interface UserApi {
-    @GET("")
+    @GET("api/data/Ayim")
     fun getUsers(): Single<List<UserDto>>
 }

@@ -8,5 +8,6 @@ data class UserEntity(
     @PrimaryKey
     var id: Long,
     var name: String,
-    var surname: String
+    var surname: String,
+    var img: String
 )

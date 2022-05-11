@@ -12,5 +12,4 @@ class UserRepo @Inject constructor(
 
     fun getUserFromApi() = userApi.getUsers()
 
-    fun saveUsersToDb(users: List<UserEntity>) = userDao.insertUsers(users)
 }
