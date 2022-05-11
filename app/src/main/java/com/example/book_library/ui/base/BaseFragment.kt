@@ -8,8 +8,6 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.viewbinding.ViewBinding
-import dagger.hilt.android.AndroidEntryPoint
-
 
 open class BaseFragment<viewModel : ViewModel, viewBinding: ViewBinding>(
     private val vmClass: Class<viewModel>,
@@ -40,5 +38,4 @@ open class BaseFragment<viewModel : ViewModel, viewBinding: ViewBinding>(
         super.onDestroyView()
         _binding = null
     }
-
 }

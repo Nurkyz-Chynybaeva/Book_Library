@@ -10,7 +10,6 @@ open class BaseViewModel @Inject constructor() : ViewModel() {
         CompositeDisposable()
     }
 
-
     override fun onCleared() {
         disposable.clear()
         super.onCleared()
