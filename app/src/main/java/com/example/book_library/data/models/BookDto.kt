@@ -8,5 +8,6 @@ data class UserDto(
     var id: Long,
     var name: String,
     var surname: String,
-    var image: String
+    var image: String,
+    var book: String
 )

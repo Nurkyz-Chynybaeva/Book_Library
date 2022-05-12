@@ -9,6 +9,7 @@ fun UserDto.toCharacterEntity(): UserEntity {
         id = this.id,
         name = this.name,
         surname = this.surname,
-        image = this.image
+        image = this.image,
+        book = this.book
     )
 }
