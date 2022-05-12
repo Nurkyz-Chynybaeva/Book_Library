@@ -76,4 +76,7 @@ dependencies {
     //meow bottom navigation
     implementation 'com.etebarian:meow-bottom-navigation:1.0.4'
 
+    implementation 'com.github.barteksc:android-pdf-viewer:2.8.2'
+
+
 }
