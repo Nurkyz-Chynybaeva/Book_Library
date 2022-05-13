@@ -1,21 +1,19 @@
 package com.example.book_library.ui.main_screen
 
-import android.content.Intent
-import android.net.Uri
 import android.os.Bundle
 import android.view.View
+import android.widget.Toast
 
 import androidx.lifecycle.Observer
-import com.bumptech.glide.Glide
-import com.example.book_library.VIewPdfActivity
 import com.example.book_library.data.models.UserDto
-import com.example.book_library.data.models.UserEntity
 import com.example.book_library.databinding.FragmentMainBinding
-import com.example.book_library.di.NetworkModule
-import com.example.book_library.domain.use_cases.GetUserUseCase
 import com.example.book_library.ui.Event
 import com.example.book_library.ui.base.BaseFragment
 import dagger.hilt.android.AndroidEntryPoint
+import es.voghdev.pdfviewpager.library.RemotePDFViewPager
+import es.voghdev.pdfviewpager.library.adapter.PDFPagerAdapter
+import es.voghdev.pdfviewpager.library.remote.DownloadFile
+import java.lang.Exception
 
 @AndroidEntryPoint
 class MainFragment : BaseFragment<MainViewModel, FragmentMainBinding>(
@@ -23,7 +21,7 @@ class MainFragment : BaseFragment<MainViewModel, FragmentMainBinding>(
     {
         FragmentMainBinding.inflate(it)
     }
-) {
+), DownloadFile.Listener {
 
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -44,9 +42,16 @@ class MainFragment : BaseFragment<MainViewModel, FragmentMainBinding>(
         )
     }
 
+    private lateinit var pdfViewPager: RemotePDFViewPager
+
     private fun fillViews(it: List<UserDto>) {
+
+
+        pdfViewPager = RemotePDFViewPager(requireContext(),it[0].book,this)
         with(binding) {
-            it.forEach {
+
+//            binding.pdfView.fromUri(Uri.parse(it[0].book)).load()
+            /*it.forEach {
                 txtMain.text = it.name
 
                 Glide.with(requireContext())
@@ -59,7 +64,8 @@ class MainFragment : BaseFragment<MainViewModel, FragmentMainBinding>(
                 }
 
                 binding.pdfView.fromAsset(it.book).load()
-            }
+//                binding.pdfView.fromAsset("магия_утра.pdf").load()
+            }*/
         }
     }
 
@@ -68,5 +74,24 @@ class MainFragment : BaseFragment<MainViewModel, FragmentMainBinding>(
             return MainFragment()
         }
     }
+
+    override fun onSuccess(url: String?, destinationPath: String?) {
+
+        val adapter = PDFPagerAdapter(requireContext(),destinationPath)
+        pdfViewPager.adapter = adapter
+        binding.flContainer.addView(pdfViewPager,  )
+
+        Toast.makeText(requireContext(), "SUCCESS",Toast.LENGTH_SHORT).show()
+    }
+
+    override fun onFailure(e: Exception?) {
+        Toast.makeText(requireContext(), "FAIL",Toast.LENGTH_SHORT).show()
+
+    }
+
+    override fun onProgressUpdate(progress: Int, total: Int) {
+
+    }
 }
+
 
