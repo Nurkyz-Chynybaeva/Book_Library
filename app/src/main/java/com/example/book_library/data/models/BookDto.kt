@@ -1,10 +1,10 @@
 package com.example.book_library.data.models
 
 data class ResponseDto(
-    val results: List<UserDto>
+    val results: List<BookDto>
 )
 
-data class UserDto(
+data class BookDto(
     var id: Long,
     var name: String,
     var surname: String,

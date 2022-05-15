@@ -1,11 +1,11 @@
 package com.example.book_library.extensions
 
-import com.example.book_library.data.models.UserDto
-import com.example.book_library.data.models.UserEntity
+import com.example.book_library.data.models.BookDto
+import com.example.book_library.data.models.BookEntity
 
-fun UserDto.toCharacterEntity(): UserEntity {
+fun BookDto.toDataEntity(): BookEntity {
 
-    return UserEntity(
+    return BookEntity(
         id = this.id,
         name = this.name,
         surname = this.surname,

@@ -1,6 +1,6 @@
 package com.example.book_library.di
 import com.example.book_library.BuildConfig
-import com.example.book_library.data.network.UserApi
+import com.example.book_library.data.network.BooksApi
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -18,7 +18,7 @@ import javax.inject.Singleton
 class NetworkModule {
 
     @Provides
-    fun provideUserApi(retrofit: Retrofit): UserApi = retrofit.create(UserApi::class.java)
+    fun provideUserApi(retrofit: Retrofit): BooksApi = retrofit.create(BooksApi::class.java)
 
     @Provides
     @Singleton

@@ -4,11 +4,11 @@ import androidx.room.Entity
 import androidx.room.PrimaryKey
 
 data class Response(
-    val results: List<UserEntity>
+    val results: List<BookEntity>
 )
 
 @Entity
-data class UserEntity(
+data class BookEntity(
     @PrimaryKey
     var id: Long,
     var name: String,

@@ -2,14 +2,12 @@ package com.example.book_library.data.local
 
 import androidx.room.Database
 import androidx.room.RoomDatabase
-import com.example.book_library.data.models.UserEntity
+import com.example.book_library.data.models.BookEntity
 
-
-@Database(entities = [UserEntity::class], version = 1)
+@Database(entities = [BookEntity::class], version = 2)
 abstract class AppDatabase: RoomDatabase()  {
 
-    abstract fun userDao(): UserDao
-
+    abstract fun booksDao(): BooksDao
 
     companion object {
         const val DB_NAME = "example.db"
