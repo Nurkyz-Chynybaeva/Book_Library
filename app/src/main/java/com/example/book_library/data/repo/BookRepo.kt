@@ -23,5 +23,5 @@ class BookRepo @Inject constructor(
 //    fun getUserFromApi() = userApi.getUsers()
 //        .subscribeOn(Schedulers.io())
 
-    fun getCharactersAsLive() = booksDao.getAll()
+    fun getBooksAsLiveData() = booksDao.getAll()
 }

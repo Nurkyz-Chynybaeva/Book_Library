@@ -4,12 +4,9 @@ import android.content.Context
 import android.os.Bundle
 import android.view.View
 import com.example.book_library.R
-import com.example.book_library.databinding.FragmentLoginBinding
 import com.example.book_library.databinding.FragmentRegisterBinding
 import com.example.book_library.ui.MediatorBetweenFragments
 import com.example.book_library.ui.base.BaseFragment
-import com.example.book_library.ui.login_screen.LoginViewModel
-import com.example.book_library.ui.main_screen.MainFragment
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -32,13 +29,11 @@ class RegisterFragment : BaseFragment<RegisterViewModel, FragmentRegisterBinding
         binding.btnLogRegister.setOnClickListener {
           onBackPressed()
         }
-
     }
 
      private fun onBackPressed() {
          super.requireActivity().onBackPressed()
          activity?.overridePendingTransition(R.anim.slide_from_left,R.anim.slide_to_right)
-
     }
 
 

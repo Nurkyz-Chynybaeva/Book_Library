@@ -5,12 +5,16 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.MenuItem
 import androidx.appcompat.app.ActionBarDrawerToggle
+import androidx.fragment.app.Fragment
 import com.example.book_library.R
 import com.example.book_library.databinding.ActivityMain2Binding
+import com.example.book_library.ui.jk.Jk
 import com.example.book_library.ui.main_screen.MainFragment
+import dagger.hilt.android.AndroidEntryPoint
 
-class MainActivity2 : AppCompatActivity() {
-    lateinit var toggle: ActionBarDrawerToggle
+@AndroidEntryPoint
+class MainActivity2 : AppCompatActivity(), MediatorBetweenFragments2 {
+    private lateinit var toggle: ActionBarDrawerToggle
     private lateinit var binding: ActivityMain2Binding
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -19,7 +23,18 @@ class MainActivity2 : AppCompatActivity() {
         setContentView(binding.root)
 
         navigationDrawerFeatures()
+        openFragment2(MainFragment())
+
     }
+
+    override fun openFragment2(fragment2: Fragment) {
+        supportFragmentManager
+            .beginTransaction()
+            .replace(R.id.fragment_container_activityMain2, fragment2)
+            .commit()
+    }
+
+
 
     private fun navigationDrawerFeatures(){
         with(binding){
@@ -31,12 +46,11 @@ class MainActivity2 : AppCompatActivity() {
             navView.setNavigationItemSelectedListener {
                 when (it.itemId) {
                     R.id.item1 -> {
-                        supportFragmentManager.beginTransaction()
-                            .replace(R.id.container, MainFragment()).commit()
+//                       openFragment2(MainFragment())
                     }
                     R.id.item2 -> {
-                        supportFragmentManager.beginTransaction()
-                            .replace(R.id.container, MainFragment()).commit()
+//                        supportFragmentManager.beginTransaction()
+//                            .replace(R.id.container, MainFragment()).commit()
                     }
 
                 }

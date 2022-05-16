@@ -13,7 +13,7 @@ import javax.inject.Inject
 @HiltViewModel
 class MainViewModel @Inject constructor(
     private val getAllBooksUseCase: GetAllBooksUseCase,
-    getBookAsLiveDataUseCase: GetBookAsLiveDataUseCase,
+   private val getBookAsLiveDataUseCase: GetBookAsLiveDataUseCase,
 ) : BaseViewModel() {
 
     private val compositeDisposable: CompositeDisposable = CompositeDisposable()

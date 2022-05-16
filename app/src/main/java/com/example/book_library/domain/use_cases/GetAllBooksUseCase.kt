@@ -11,9 +11,12 @@ import javax.inject.Inject
 class GetAllBooksUseCase @Inject constructor(
     private val bookRepo: BookRepo,
 ) {
-    operator fun invoke(): Single<Unit> {
+    operator fun invoke(): Single<List<BookEntity>> {
         return bookRepo.getAllBooks()
             .subscribeOn(Schedulers.io())
+            .map {
+                it
+            }
             .map {
                 val listDB = mutableListOf<BookEntity>()
                 it.forEach {
@@ -23,6 +26,7 @@ class GetAllBooksUseCase @Inject constructor(
             }
             .map {
                 bookRepo.insertList(it)
+               it
             }
             .observeOn(AndroidSchedulers.mainThread())
 

@@ -1,15 +1,12 @@
 package com.example.book_library.domain.use_cases
 
-import com.example.book_library.data.local.BooksDao
+import androidx.lifecycle.LiveData
+import com.example.book_library.data.models.BookEntity
+import com.example.book_library.data.repo.BookRepo
 import javax.inject.Inject
 
-//class GetUserAsLiveDataUseCase @Inject constructor(
-//    private val  repo: UserRepo
-//) {
-//    operator fun invoke(): LiveData<List<UserEntity>> {
-//        return repo.getCharactersAsLive()
-//    }
-    class GetBookAsLiveDataUseCase @Inject constructor(private val booksDao: BooksDao) {
-        operator fun invoke() = booksDao.getAll()
+class GetBookAsLiveDataUseCase @Inject constructor(private val booksRepo: BookRepo) {
+    operator fun invoke(): LiveData<List<BookEntity>> {
+        return booksRepo.getBooksAsLiveData()
     }
-//}
+}

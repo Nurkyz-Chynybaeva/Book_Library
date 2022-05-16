@@ -5,9 +5,9 @@ data class ResponseDto(
 )
 
 data class BookDto(
-    var id: Long,
-    var name: String,
-    var surname: String,
-    var image: String,
-    var book: String
+    var id: Long? = null,
+    var name: String? = null,
+    var surname: String? = null,
+    var image: String? = null,
+    var book: String? = null
 )

@@ -8,7 +8,6 @@ import androidx.fragment.app.Fragment
 import com.etebarian.meowbottomnavigation.MeowBottomNavigation
 import com.example.book_library.R
 import com.example.book_library.databinding.ActivityMainBinding
-import com.example.book_library.ui.main_screen.MainFragment
 import com.example.book_library.ui.login_screen.LoginFragment
 import dagger.hilt.android.AndroidEntryPoint
 

@@ -4,9 +4,13 @@
     tools:showIn="navigation_view">
     <group android:checkableBehavior="single">
         <item
-            android:id="@+id/item1"
+            android:id="@+id/item0"
             android:icon="@drawable/ic_favorite"
             android:title="@string/favorites" />
+        <item
+            android:id="@+id/item1"
+            android:title="@string/technics"
+            android:icon="@drawable/ic_right_24"/>
         <item
             android:id="@+id/item2"
             android:title="@string/detective"
@@ -17,23 +21,23 @@
             android:icon="@drawable/ic_right_24"/>
         <item
             android:id="@+id/item4"
-            android:title="@string/detective"
+            android:title="@string/novel"
             android:icon="@drawable/ic_right_24"/>
         <item
             android:id="@+id/item5"
             android:icon="@drawable/ic_right_24"
-           android:title="@string/detective" />
+           android:title="@string/scientific_book" />
         <item
             android:id="@+id/item6"
             android:icon="@drawable/ic_right_24"
-            android:title="@string/detective" />
+            android:title="@string/folklore" />
         <item
             android:id="@+id/item7"
             android:icon="@drawable/ic_right_24"
-            android:title="@string/detective"/>
+            android:title="@string/poetry_prose"/>
         <item
             android:id="@+id/item8"
-            android:title="@string/detective"
+            android:title="@string/psychology"
             android:icon="@drawable/ic_right_24"/>
     </group>
 </menu>
