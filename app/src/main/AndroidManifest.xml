@@ -12,7 +12,9 @@
         android:roundIcon="@drawable/logo"
         android:supportsRtl="true"
         android:theme="@style/Theme.Book_Library">
-
+        <activity
+            android:name=".ui.MainActivity2"
+            android:exported="true" />
         <activity
             android:name=".ui.MainActivity"
             android:exported="true">

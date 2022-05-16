@@ -1,5 +1,6 @@
 package com.example.book_library.ui
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -34,7 +35,7 @@ class MainActivity : AppCompatActivity(), MediatorBetweenFragments {
 
             bottomNavigation.setOnClickMenuListener {
                 when (it.id){
-                    0 -> openFragment(MainFragment.newInstance())
+                    0 -> startActivity(Intent(Intent(this@MainActivity, MainActivity2::class.java)))
                 }
             }
         }
