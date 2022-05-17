@@ -5,6 +5,7 @@ import io.reactivex.Single
 import retrofit2.http.GET
 
 interface BooksApi {
-    @GET("api/data/Ayim2")
+    @GET("api/data/book_library")
     fun getBooks(): Single<List<BookDto>>
+
 }
