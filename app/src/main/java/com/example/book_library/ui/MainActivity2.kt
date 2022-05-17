@@ -8,7 +8,6 @@ import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.fragment.app.Fragment
 import com.example.book_library.R
 import com.example.book_library.databinding.ActivityMain2Binding
-import com.example.book_library.ui.jk.Jk
 import com.example.book_library.ui.main_screen.MainFragment
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -24,13 +23,13 @@ class MainActivity2 : AppCompatActivity(), MediatorBetweenFragments2 {
 
         navigationDrawerFeatures()
         openFragment2(MainFragment())
-
     }
 
     override fun openFragment2(fragment2: Fragment) {
         supportFragmentManager
             .beginTransaction()
             .replace(R.id.fragment_container_activityMain2, fragment2)
+            .addToBackStack(null)
             .commit()
     }
 

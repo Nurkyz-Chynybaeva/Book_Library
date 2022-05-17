@@ -4,7 +4,7 @@ import androidx.room.Database
 import androidx.room.RoomDatabase
 import com.example.book_library.data.models.BookEntity
 
-@Database(entities = [BookEntity::class], version = 3)
+@Database(entities = [BookEntity::class], version = 5)
 abstract class AppDatabase: RoomDatabase()  {
 
     abstract fun booksDao(): BooksDao

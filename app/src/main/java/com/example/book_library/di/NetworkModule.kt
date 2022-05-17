@@ -53,7 +53,4 @@ class NetworkModule {
             .client(httpClient)
             .build()
     }
-
-
-
 }

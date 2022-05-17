@@ -5,6 +5,7 @@ import com.example.book_library.data.models.BookDto
 import com.example.book_library.data.models.BookEntity
 import com.example.book_library.data.network.BooksApi
 import io.reactivex.Single
+import io.reactivex.schedulers.Schedulers
 import javax.inject.Inject
 
 class BookRepo @Inject constructor(
@@ -20,6 +21,10 @@ class BookRepo @Inject constructor(
         booksDao.insertList(characterList)
     }
 
+
+    fun getBook(id: Int): Single<BookDto> {
+        return booksApi.getBookById(id)
+    }
 //    fun getUserFromApi() = userApi.getUsers()
 //        .subscribeOn(Schedulers.io())
 
