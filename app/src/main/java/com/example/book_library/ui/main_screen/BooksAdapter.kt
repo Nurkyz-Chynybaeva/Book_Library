@@ -10,7 +10,7 @@ import com.example.book_library.databinding.ItemRecyclerBinding
 
 class BooksAdapter(private val click: (book: BookEntity) -> Unit) :
     RecyclerView.Adapter<BooksAdapter.ViewHolder>() {
-    private var list = listOf<BookEntity>()
+     var list = listOf<BookEntity>()
 
     fun setData(list: List<BookEntity>) {
         this.list = list
