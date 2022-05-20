@@ -1,16 +1,13 @@
 package com.example.book_library.ui.book_screen
 
 import android.util.Log
-import android.widget.Toast
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.example.book_library.domain.use_cases.GetBookByIdUseCase
 import com.example.book_library.ui.Event
 import com.example.book_library.ui.base.BaseViewModel
 import dagger.hilt.android.lifecycle.HiltViewModel
-import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
-import io.reactivex.schedulers.Schedulers
 import javax.inject.Inject
 
 @HiltViewModel

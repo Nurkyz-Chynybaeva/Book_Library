@@ -2,12 +2,16 @@ package com.example.book_library.ui.book_screen
 
 import android.os.Bundle
 import android.view.View
-import com.bumptech.glide.Glide
-import com.example.book_library.data.models.BookEntity
+import android.widget.Toast
+import com.example.book_library.data.models.BookDto
 import com.example.book_library.databinding.FragmentBookBinding
 import com.example.book_library.ui.Event
 import com.example.book_library.ui.base.BaseFragment
 import dagger.hilt.android.AndroidEntryPoint
+import es.voghdev.pdfviewpager.library.RemotePDFViewPager
+import es.voghdev.pdfviewpager.library.adapter.PDFPagerAdapter
+import es.voghdev.pdfviewpager.library.remote.DownloadFile
+import java.lang.Exception
 
 @AndroidEntryPoint
 class BookFragment : BaseFragment<BookViewModel, FragmentBookBinding>(
@@ -15,7 +19,7 @@ class BookFragment : BaseFragment<BookViewModel, FragmentBookBinding>(
     {
         FragmentBookBinding.inflate(it)
     }
-) {
+) , DownloadFile.Listener {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -32,18 +36,34 @@ class BookFragment : BaseFragment<BookViewModel, FragmentBookBinding>(
     private fun subscribeToLiveData() {
         viewModel.event.observe(viewLifecycleOwner) {
             when (it) {
-                is Event.FetchedBook -> setupViews(it.bookE)
+                is Event.FetchedBook -> fillBook(it.bookE)
             }
         }
     }
 
-    private fun setupViews(bookE: BookEntity) {
-        with(binding) {
-            Glide.with(requireContext()).load(bookE.image).into(img)
-            name.text = bookE.name
-        }
+    private lateinit var pdfViewPager: RemotePDFViewPager
+
+    private fun fillBook(it: List<BookDto>) {
+        pdfViewPager = RemotePDFViewPager(requireContext(),it[0].book,this)
     }
 
+    override fun onSuccess(url: String?, destinationPath: String?) {
+
+        val adapter = PDFPagerAdapter(requireContext(),destinationPath)
+        pdfViewPager.adapter = adapter
+        binding.flContainer.addView(pdfViewPager)
+
+        Toast.makeText(requireContext(), "SUCCESS", Toast.LENGTH_SHORT).show()
+    }
+
+    override fun onFailure(e: Exception?) {
+        Toast.makeText(requireContext(), "FAIL", Toast.LENGTH_SHORT).show()
+
+    }
+
+    override fun onProgressUpdate(progress: Int, total: Int) {
+
+    }
 
     companion object {
         const val KEY_ID = "key_id"

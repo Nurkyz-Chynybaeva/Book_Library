@@ -4,10 +4,13 @@ import com.example.book_library.data.models.BookDto
 import io.reactivex.Single
 import retrofit2.http.GET
 import retrofit2.http.Path
+import retrofit2.http.Query
 
 interface BooksApi {
     @GET("api/data/book_library")
-    fun getBooks(): Single<List<BookDto>>
+    fun getBooks(
+        @Query("pageSize") size: Int = 100
+    ): Single<List<BookDto>>
 
     @GET("api/data/book_library/{id}")
     fun getBookById(@Path("id") id: Int?): Single<BookDto>

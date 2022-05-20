@@ -8,5 +8,5 @@ sealed class Event(){
     class ShowToast(@StringRes val resId: Int): Event()
     object ShowLoading: Event()
     object StopLoading: Event()
-    class FetchedBook(val bookE: BookEntity): Event()
+    class FetchedBook(val bookE: List<BookDto>): Event()
 }

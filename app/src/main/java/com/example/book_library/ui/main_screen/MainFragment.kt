@@ -2,10 +2,7 @@ package com.example.book_library.ui.main_screen
 
 import android.content.Context
 import android.os.Bundle
-import android.util.Log
 import android.view.View
-import android.widget.Toast
-import androidx.appcompat.widget.SearchView
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -36,7 +33,7 @@ class MainFragment : BaseFragment<MainViewModel, FragmentMainBinding>(
         viewModel.getAllBooks()
         subscribeToLiveData()
         setUpViews()
-        setUpSearchView()
+//        setUpSearchView()
     }
 
     private fun setUpViews(){
@@ -54,22 +51,22 @@ class MainFragment : BaseFragment<MainViewModel, FragmentMainBinding>(
         }
     }
 
-    private fun setUpSearchView(){
-        binding.searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener{
-            override fun onQueryTextSubmit(query: String?): Boolean {
-                binding.searchView.clearFocus()
-                if (adapter.list.contains(query)){
-                    adapter.filter.filter(query)
-                }
-                return false
-            }
-
-            override fun onQueryTextChange(query: String?): Boolean {
-                adapter.filter.filter(query)
-                return false
-            }
-        })
-    }
+//    private fun setUpSearchView(){
+//        binding.searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener{
+//            override fun onQueryTextSubmit(query: String?): Boolean {
+//                binding.searchView.clearFocus()
+//                if (adapter.list.contains(query)){
+//                    adapter.filter.filter(query)
+//                }
+//                return false
+//            }
+//
+//            override fun onQueryTextChange(query: String?): Boolean {
+//                adapter.filter.filter(query)
+//                return false
+//            }
+//        })
+//    }
 
     private fun subscribeToLiveData() {
         viewModel.booksLiveData.observe(viewLifecycleOwner) {

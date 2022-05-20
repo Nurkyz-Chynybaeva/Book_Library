@@ -31,7 +31,7 @@ class MainViewModel @Inject constructor(
                     Log.d("TAG", "get users")
 
                 }, {
-                    Log.d("TAG", "error")
+                    Log.d("TAG", it.message ?: "error")
                 })
         )
     }
