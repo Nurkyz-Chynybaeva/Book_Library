@@ -29,9 +29,6 @@ class LoginFragment : BaseFragment<LoginViewModel, FragmentLoginBinding>(
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        binding.btnRegLogin.setOnClickListener {
-
-        }
     }
 
 }
