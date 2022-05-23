@@ -2,6 +2,8 @@ package com.example.book_library.ui.main_screen
 
 import android.content.Context
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
 import android.view.View
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -44,7 +46,6 @@ class MainFragment : BaseFragment<MainViewModel, FragmentMainBinding>(
 
         recycler.adapter = adapter
         recycler.layoutManager = LinearLayoutManager(requireContext())
-        recycler.addItemDecoration(DividerItemDecoration(requireContext(), RecyclerView.VERTICAL))
 
         binding.swipeToRefresh.setOnRefreshListener {
             viewModel.getAllBooks()
@@ -64,6 +65,25 @@ class MainFragment : BaseFragment<MainViewModel, FragmentMainBinding>(
 //            override fun onQueryTextChange(query: String?): Boolean {
 //                adapter.filter.filter(query)
 //                return false
+//            }
+//        })
+//    }
+
+
+
+// ВОРОЙ ВАРИАНТ
+//    private fun setUpSearchView(){
+//        binding.editToSearch.addTextChangedListener(object : TextWatcher {
+//            override fun afterTextChanged(p0: Editable?) {
+//                TODO("Not yet implemented")
+//            }
+//
+//            override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+//                TODO("Not yet implemented")
+//            }
+//
+//            override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+//                TODO("Not yet implemented")
 //            }
 //        })
 //    }

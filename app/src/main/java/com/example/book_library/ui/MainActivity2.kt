@@ -8,6 +8,7 @@ import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.fragment.app.Fragment
 import com.example.book_library.R
 import com.example.book_library.databinding.ActivityMain2Binding
+import com.example.book_library.ui.genres.technics_books.TechnicBooksFragment
 import com.example.book_library.ui.main_screen.MainFragment
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -20,6 +21,7 @@ class MainActivity2 : AppCompatActivity(), MediatorBetweenFragments2 {
         super.onCreate(savedInstanceState)
         binding  = ActivityMain2Binding.inflate(LayoutInflater.from(this))
         setContentView(binding.root)
+        setSupportActionBar(binding.toolbar)
 
         navigationDrawerFeatures()
         openFragment2(MainFragment())
@@ -48,8 +50,7 @@ class MainActivity2 : AppCompatActivity(), MediatorBetweenFragments2 {
 //                       openFragment2(MainFragment())
                     }
                     R.id.item2 -> {
-//                        supportFragmentManager.beginTransaction()
-//                            .replace(R.id.container, MainFragment()).commit()
+                        openFragment2(TechnicBooksFragment())
                     }
 
                 }

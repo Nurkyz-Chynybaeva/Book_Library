@@ -9,4 +9,9 @@
     <color name="white">#FFFFFFFF</color>
     <color name="colorPrimary">#4336F8</color>
     <color name="colorAccent">#80FFC4</color>
+    <color name="cardBackground">#25E3F2FD</color>
+    <color name="background2">#F7FBFC</color>
+    <color name="blue">#537AB1</color>
+    <color name="blue2">#92A3FD</color>
+    <color name="background">#E5EBF3</color>
 </resources>
