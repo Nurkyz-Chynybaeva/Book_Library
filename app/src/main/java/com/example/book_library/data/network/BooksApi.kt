@@ -19,6 +19,6 @@ interface BooksApi {
     ): Single<List<BookDto>>
 
 
-    @GET("api/data/book_library/{id}")
-    fun getBookById(@Query("id") id: Int?): Single<BookDto>
+    @GET("api/data/book_library/{objectId}")
+    fun getBookById(@Query("objectId") id: Int?): Single<BookDto>
 }

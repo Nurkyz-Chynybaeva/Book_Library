@@ -2,23 +2,12 @@ package com.example.book_library.ui.main_screen
 
 import android.content.Context
 import android.os.Bundle
-import android.text.Editable
-import android.text.TextWatcher
-import android.view.LayoutInflater
-import android.view.MenuItem
 import android.view.View
-import android.view.ViewGroup
-import androidx.appcompat.app.ActionBarDrawerToggle
-import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
-import com.example.book_library.R
 import com.example.book_library.databinding.FragmentMainBinding
 import com.example.book_library.ui.MediatorBetweenFragments
-import com.example.book_library.ui.MediatorBetweenFragments2
 import com.example.book_library.ui.base.BaseFragment
 import com.example.book_library.ui.book_screen.BookFragment
-import com.example.book_library.ui.genres.technics_books.TechnicBooksFragment
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

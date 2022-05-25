@@ -14,9 +14,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Book_Library"
         tools:targetApi="m">
-        <activity
-            android:name=".ui.MainActivity2"
-            android:exported="true" />
+
         <activity
             android:name=".ui.MainActivity"
             android:exported="true">

@@ -6,7 +6,6 @@ import android.view.View
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.book_library.databinding.FragmentTechnicBooksBinding
 import com.example.book_library.ui.MediatorBetweenFragments
-import com.example.book_library.ui.MediatorBetweenFragments2
 import com.example.book_library.ui.base.BaseFragment
 import com.example.book_library.ui.book_screen.BookFragment
 import com.example.book_library.ui.main_screen.BooksAdapter
