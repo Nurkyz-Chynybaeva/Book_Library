@@ -8,6 +8,7 @@ import com.example.book_library.ui.Event
 import com.example.book_library.ui.base.BaseViewModel
 import dagger.hilt.android.lifecycle.HiltViewModel
 import io.reactivex.disposables.CompositeDisposable
+import java.util.*
 import javax.inject.Inject
 
 @HiltViewModel
@@ -17,9 +18,9 @@ class BookViewModel @Inject constructor(
     private val compositeDisposable: CompositeDisposable = CompositeDisposable()
 
 
-    private var id: Int = 1
-    fun setId(id: Int?) {
-        this.id = id ?: 1
+    private var id: String = "key_id"
+    fun setId(id: String) {
+        this.id = id ?: ""
     }
 
     private val _event = MutableLiveData<Event?>()
@@ -31,7 +32,7 @@ class BookViewModel @Inject constructor(
         compositeDisposable.add(
             getBookByIdUseCase(id)
                 .subscribe({
-                    Log.d("tag", "tag")
+                    _event.value = Event.FetchedBook(it)
                 }, {
                     Log.d("tag", "error")
                 })

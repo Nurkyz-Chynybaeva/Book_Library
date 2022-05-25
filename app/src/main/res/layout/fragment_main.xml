@@ -4,15 +4,30 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:gravity="center">
+    <androidx.appcompat.widget.SearchView
+        android:id="@+id/searchView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:iconifiedByDefault="false"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginBottom="16dp"
+        android:queryHint="@string/enter_book_title"
+        android:queryBackground="@android:color/transparent"
+        />
 
     <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
         android:id="@+id/swipeToRefresh"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recycler"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="match_parent" >
+
+
+        </androidx.recyclerview.widget.RecyclerView>
     </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 </androidx.appcompat.widget.LinearLayoutCompat>

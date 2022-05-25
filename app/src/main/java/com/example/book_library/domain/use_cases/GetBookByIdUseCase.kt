@@ -13,7 +13,7 @@ class GetBookByIdUseCase @Inject constructor(
     private val repo: BookRepo,
 ) {
 
-    operator fun invoke(id: Int): Single<BookEntity> {
+    operator fun invoke(id: String): Single<BookEntity> {
         return repo.getBook(id)
             .subscribeOn(Schedulers.io())
             .map {

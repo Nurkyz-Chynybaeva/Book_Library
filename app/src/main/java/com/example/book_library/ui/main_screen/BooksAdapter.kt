@@ -12,8 +12,26 @@ class BooksAdapter(private val click: (book: BookEntity) -> Unit) :
     RecyclerView.Adapter<BooksAdapter.ViewHolder>() {
      var list = listOf<BookEntity>()
 
+    var completeList = mutableListOf<BookEntity>()
+
     fun setData(list: List<BookEntity>) {
         this.list = list
+        this.completeList.clear()
+        this.completeList.addAll(list)
+        notifyDataSetChanged()
+    }
+
+
+    fun filter(text: String){
+
+
+        if(text.isEmpty())
+            list = completeList
+        else
+            list =  list.filter{
+                it.name?.contains(text) ?: false
+            }
+
         notifyDataSetChanged()
     }
 

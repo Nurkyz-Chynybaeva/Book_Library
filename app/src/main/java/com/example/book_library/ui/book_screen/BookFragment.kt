@@ -3,7 +3,7 @@ package com.example.book_library.ui.book_screen
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
-import com.example.book_library.data.models.BookDto
+import com.example.book_library.data.models.BookEntity
 import com.example.book_library.databinding.FragmentBookBinding
 import com.example.book_library.ui.Event
 import com.example.book_library.ui.base.BaseFragment
@@ -11,7 +11,6 @@ import dagger.hilt.android.AndroidEntryPoint
 import es.voghdev.pdfviewpager.library.RemotePDFViewPager
 import es.voghdev.pdfviewpager.library.adapter.PDFPagerAdapter
 import es.voghdev.pdfviewpager.library.remote.DownloadFile
-import java.lang.Exception
 
 @AndroidEntryPoint
 class BookFragment : BaseFragment<BookViewModel, FragmentBookBinding>(
@@ -23,7 +22,7 @@ class BookFragment : BaseFragment<BookViewModel, FragmentBookBinding>(
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        viewModel.setId(arguments?.getInt(KEY_ID))
+        arguments?.getString(KEY_ID)?.let { viewModel.setId(it) }
         viewModel.fetchBook()
     }
 
@@ -43,13 +42,13 @@ class BookFragment : BaseFragment<BookViewModel, FragmentBookBinding>(
 
     private lateinit var pdfViewPager: RemotePDFViewPager
 
-    private fun fillBook(it: List<BookDto>) {
-        pdfViewPager = RemotePDFViewPager(requireContext(),it[0].book,this)
+    private fun fillBook(it: BookEntity) {
+        pdfViewPager = RemotePDFViewPager(requireContext(), it.book, this)
     }
 
     override fun onSuccess(url: String?, destinationPath: String?) {
 
-        val adapter = PDFPagerAdapter(requireContext(),destinationPath)
+        val adapter = PDFPagerAdapter(requireContext(), destinationPath)
         pdfViewPager.adapter = adapter
         binding.flContainer.addView(pdfViewPager)
 
@@ -62,13 +61,13 @@ class BookFragment : BaseFragment<BookViewModel, FragmentBookBinding>(
     }
 
     override fun onProgressUpdate(progress: Int, total: Int) {
-
+//        binding.progressHorizontal.setProgress(progress,true)
     }
 
     companion object {
         const val KEY_ID = "key_id"
-        fun newInstance(id: Int): BookFragment {
-            val args = Bundle().apply { putInt(KEY_ID, id) }
+        fun newInstance(id: String): BookFragment {
+            val args = Bundle().apply { putString(KEY_ID, id) }
             return BookFragment().apply { arguments = args }
         }
     }

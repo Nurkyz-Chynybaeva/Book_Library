@@ -3,6 +3,7 @@ package com.example.book_library.ui.main_screen
 import android.content.Context
 import android.os.Bundle
 import android.view.View
+import androidx.appcompat.widget.SearchView
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.book_library.databinding.FragmentMainBinding
 import com.example.book_library.ui.MediatorBetweenFragments
@@ -40,7 +41,7 @@ class MainFragment : BaseFragment<MainViewModel, FragmentMainBinding>(
     private fun setUpViews(){
         val recycler = binding.recycler
         adapter = BooksAdapter {
-            listener.openFragment(BookFragment.newInstance(id))
+            listener.openFragment(BookFragment.newInstance(it.objectId))
         }
 
         recycler.adapter = adapter
@@ -56,13 +57,17 @@ class MainFragment : BaseFragment<MainViewModel, FragmentMainBinding>(
 //            override fun onQueryTextSubmit(query: String?): Boolean {
 //                binding.searchView.clearFocus()
 //                if (adapter.list.contains(query)){
-//                    adapter.filter.filter(query)
+//                    if (query != null) {
+//                        adapter.filter(query)
+//                    }
 //                }
 //                return false
 //            }
 //
 //            override fun onQueryTextChange(query: String?): Boolean {
-//                adapter.filter.filter(query)
+//                if (query != null) {
+//                    adapter.filter(query)
+//                }
 //                return false
 //            }
 //        })

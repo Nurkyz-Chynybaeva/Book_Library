@@ -26,7 +26,7 @@ class BookRepo @Inject constructor(
     }
 
 
-    fun getBook(id: Int): Single<BookDto> {
+    fun getBook(id: String): Single<BookDto> {
         return booksApi.getBookById(id)
     }
 //    fun getUserFromApi() = userApi.getUsers()

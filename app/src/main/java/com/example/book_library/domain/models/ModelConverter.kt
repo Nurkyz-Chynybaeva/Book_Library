@@ -6,7 +6,7 @@ import com.example.book_library.data.models.BookEntity
 fun BookDto.toBookEntity(): BookEntity {
 
     return BookEntity(
-//        objectId = this.objectId,
+        objectId = this.objectId,
         id = this.id,
         name = this.name,
         surname = this.surname,

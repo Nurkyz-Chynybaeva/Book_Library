@@ -15,10 +15,10 @@ interface BooksApi {
 
     @GET("api/data/technic_books")
     fun getTechnicBooks(
-        @Query("pageSize") size: Int = 1
+        @Query("pageSize") size: Int = 100
     ): Single<List<BookDto>>
 
 
     @GET("api/data/book_library/{objectId}")
-    fun getBookById(@Query("objectId") id: Int?): Single<BookDto>
+    fun getBookById(@Path("objectId") objectId: String): Single<BookDto>
 }

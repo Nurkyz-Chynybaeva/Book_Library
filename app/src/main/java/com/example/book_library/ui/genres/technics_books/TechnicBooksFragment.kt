@@ -39,7 +39,7 @@ class TechnicBooksFragment : BaseFragment<TechnicBooksViewModel, FragmentTechnic
     private fun setUpViews(){
         val recycler = binding.recycler
         adapter = BooksAdapter {
-            listener.openFragment(BookFragment.newInstance(id))
+//            listener.openFragment(BookFragment.newInstance(id))
         }
 
         recycler.adapter = adapter
