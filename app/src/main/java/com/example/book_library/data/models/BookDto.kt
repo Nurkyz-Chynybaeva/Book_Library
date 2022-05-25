@@ -5,6 +5,7 @@ data class ResponseDto(
 )
 
 data class BookDto(
+//    var objectId: String? = null,
     var id: Int? = null,
     var name: String? = null,
     var surname: String? = null,

@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.View
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.book_library.databinding.FragmentTechnicBooksBinding
+import com.example.book_library.ui.MediatorBetweenFragments
 import com.example.book_library.ui.MediatorBetweenFragments2
 import com.example.book_library.ui.base.BaseFragment
 import com.example.book_library.ui.book_screen.BookFragment
@@ -19,12 +20,12 @@ class TechnicBooksFragment : BaseFragment<TechnicBooksViewModel, FragmentTechnic
         FragmentTechnicBooksBinding.inflate(it)
     }
 ) {
-    private lateinit var listener: MediatorBetweenFragments2
+    private lateinit var listener: MediatorBetweenFragments
     private lateinit var adapter: BooksAdapter
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
-        listener = context as MediatorBetweenFragments2
+        listener = context as MediatorBetweenFragments
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -39,7 +40,7 @@ class TechnicBooksFragment : BaseFragment<TechnicBooksViewModel, FragmentTechnic
     private fun setUpViews(){
         val recycler = binding.recycler
         adapter = BooksAdapter {
-            listener.openFragment2(BookFragment.newInstance(id))
+            listener.openFragment(BookFragment.newInstance(id))
         }
 
         recycler.adapter = adapter

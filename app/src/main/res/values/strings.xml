@@ -7,6 +7,7 @@
     <string name="enter_book_title">enter book title</string>
     <string name="favorites">favorites</string>
     <string name="genres">genres</string>
+    <string name="get_started">Get Started</string>
 
     <string name="detective">Detective</string>
     <string name="fantasy">Fantasy</string>
@@ -16,4 +17,5 @@
     <string name="poetry_prose">Poetry, prose</string>
     <string name="psychology">Psychology books</string>
     <string name="technics">Technics book</string>
+
 </resources>
