@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">Книжная Библиотека</string>
+    <string name="welcome">Добро пожаловать в Книжную Библиотеку</string>
+    <string name="open">открыть</string>
+    <string name="close">закрыть</string>
+    <string name="enter_book_title">введите название книги</string>
+    <string name="favorites">favorites</string>
+    <string name="genres">жанры книг</string>
+    <string name="get_started">Начать</string>
+
+    <string name="detective">Детектив</string>
+    <string name="fantasy">Фантастика</string>
+    <string name="novel">Роман</string>
+    <string name="scientific_book">Научные книги</string>
+    <string name="folklore">Фольклор</string>
+    <string name="poetry_prose">Поэзия, проза</string>
+    <string name="psychology">Книги по психологии</string>
+    <string name="technics">Книги по технике</string>
+
+</resources>

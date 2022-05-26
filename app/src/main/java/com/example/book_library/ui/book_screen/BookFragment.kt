@@ -1,6 +1,7 @@
 package com.example.book_library.ui.book_screen
 
 import android.os.Bundle
+import android.os.Handler
 import android.view.View
 import android.widget.Toast
 import com.example.book_library.data.models.BookEntity
@@ -29,6 +30,7 @@ class BookFragment : BaseFragment<BookViewModel, FragmentBookBinding>(
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         subscribeToLiveData()
+        onProgress()
     }
 
 
@@ -51,8 +53,6 @@ class BookFragment : BaseFragment<BookViewModel, FragmentBookBinding>(
         val adapter = PDFPagerAdapter(requireContext(), destinationPath)
         pdfViewPager.adapter = adapter
         binding.flContainer.addView(pdfViewPager)
-
-        Toast.makeText(requireContext(), "SUCCESS", Toast.LENGTH_SHORT).show()
     }
 
     override fun onFailure(e: Exception?) {
@@ -60,8 +60,24 @@ class BookFragment : BaseFragment<BookViewModel, FragmentBookBinding>(
 
     }
 
+    private fun onProgress(){
+        var progressStatus = 0
+            Thread(Runnable {
+                while (progressStatus < 100){
+                    // update progress status
+                    progressStatus +=1
+
+                    // sleep the thread for 100 milliseconds
+                    Thread.sleep(100)
+
+                    // update the progress bar
+                    binding.progressBar.progress = progressStatus
+                }
+            }).start()
+    }
+
     override fun onProgressUpdate(progress: Int, total: Int) {
-//        binding.progressHorizontal.setProgress(progress,true)
+
     }
 
     companion object {
