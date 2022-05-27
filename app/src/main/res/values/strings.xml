@@ -1,13 +1,13 @@
 <resources>
     <string name="app_name">Book Library</string>
     <string name="welcome">Welcome to Book Library</string>
-    <string name="continue_with_google">Continue with google account</string>
     <string name="open">open</string>
     <string name="close">close</string>
     <string name="enter_book_title">enter book title</string>
     <string name="favorites">favorites</string>
     <string name="genres">genres</string>
     <string name="get_started">Get Started</string>
+    <string name="wait_please">Wait, please</string>
 
     <string name="detective">Detective</string>
     <string name="fantasy">Fantasy</string>

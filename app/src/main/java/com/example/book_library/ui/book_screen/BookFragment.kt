@@ -72,6 +72,7 @@ class BookFragment : BaseFragment<BookViewModel, FragmentBookBinding>(
 
                     // update the progress bar
                     binding.progressBar.progress = progressStatus
+
                 }
             }).start()
     }
