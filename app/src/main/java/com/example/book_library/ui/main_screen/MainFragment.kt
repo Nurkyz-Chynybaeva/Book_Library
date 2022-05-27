@@ -2,13 +2,17 @@ package com.example.book_library.ui.main_screen
 
 import android.content.Context
 import android.os.Bundle
+import android.view.MenuItem
 import android.view.View
-import androidx.appcompat.widget.SearchView
+import androidx.appcompat.app.ActionBarDrawerToggle
+import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.book_library.R
 import com.example.book_library.databinding.FragmentMainBinding
 import com.example.book_library.ui.MediatorBetweenFragments
 import com.example.book_library.ui.base.BaseFragment
 import com.example.book_library.ui.book_screen.BookFragment
+import com.example.book_library.ui.genres.technics_books.TechnicBooksFragment
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -20,6 +24,7 @@ class MainFragment : BaseFragment<MainViewModel, FragmentMainBinding>(
 ) {
     private lateinit var listener: MediatorBetweenFragments
     private lateinit var adapter: BooksAdapter
+    private lateinit var toggle: ActionBarDrawerToggle
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
@@ -27,15 +32,14 @@ class MainFragment : BaseFragment<MainViewModel, FragmentMainBinding>(
 
     }
 
-
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
         viewModel.getAllBooks()
         subscribeToLiveData()
         setUpViews()
-//        setUpSearchView()
+        navigationDrawerFeatures()
+        (activity as AppCompatActivity).setSupportActionBar(binding.toolbar)
     }
 
     private fun setUpViews(){
@@ -52,45 +56,38 @@ class MainFragment : BaseFragment<MainViewModel, FragmentMainBinding>(
         }
     }
 
-//    private fun setUpSearchView(){
-//        binding.searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener{
-//            override fun onQueryTextSubmit(query: String?): Boolean {
-//                binding.searchView.clearFocus()
-//                if (adapter.list.contains(query)){
-//                    if (query != null) {
-//                        adapter.filter(query)
-//                    }
-//                }
-//                return false
-//            }
-//
-//            override fun onQueryTextChange(query: String?): Boolean {
-//                if (query != null) {
-//                    adapter.filter(query)
-//                }
-//                return false
-//            }
-//        })
-//    }
 
+    private fun navigationDrawerFeatures() {
+        with(binding) {
+            toggle = ActionBarDrawerToggle(requireActivity(),
+                drawerLayout,
+                R.string.open,
+                R.string.close)
+            drawerLayout.addDrawerListener(toggle)
+            toggle.syncState()
 
+            (activity as AppCompatActivity).supportActionBar?.setDisplayHomeAsUpEnabled(true)
+            navView.setNavigationItemSelectedListener {
+                when (it.itemId) {
+                    R.id.item1 -> {
+//                       openFragment2(MainFragment())
+                    }
+                    R.id.item2 -> {
+                        listener.openFragment(TechnicBooksFragment())
+                    }
 
-// ВОРОЙ ВАРИАНТ
-//    private fun setUpSearchView(){
-//        binding.editToSearch.addTextChangedListener(object : TextWatcher {
-//            override fun afterTextChanged(p0: Editable?) {
-//                TODO("Not yet implemented")
-//            }
-//
-//            override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
-//                TODO("Not yet implemented")
-//            }
-//
-//            override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
-//                TODO("Not yet implemented")
-//            }
-//        })
-//    }
+                }
+                true
+            }
+        }
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        if (toggle.onOptionsItemSelected(item)) {
+            return true
+        }
+        return super.onOptionsItemSelected(item)
+    }
 
     private fun subscribeToLiveData() {
         viewModel.booksLiveData.observe(viewLifecycleOwner) {
