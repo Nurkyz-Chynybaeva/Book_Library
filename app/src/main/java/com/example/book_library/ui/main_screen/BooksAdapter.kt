@@ -10,8 +10,7 @@ import com.example.book_library.databinding.ItemRecyclerBinding
 
 class BooksAdapter(private val click: (book: BookEntity) -> Unit) :
     RecyclerView.Adapter<BooksAdapter.ViewHolder>() {
-     var list = listOf<BookEntity>()
-
+    var list = listOf<BookEntity>()
     var completeList = mutableListOf<BookEntity>()
 
     fun setData(list: List<BookEntity>) {
@@ -22,10 +21,10 @@ class BooksAdapter(private val click: (book: BookEntity) -> Unit) :
     }
 
     fun filter(text: String){
-        if(text.isEmpty())
-            list = completeList
+        list = if(text.isEmpty())
+            completeList
         else
-            list =  list.filter{
+            list.filter{
                 it.name?.contains(text) ?: false
             }
         notifyDataSetChanged()
@@ -50,8 +49,7 @@ class BooksAdapter(private val click: (book: BookEntity) -> Unit) :
     class ViewHolder(
         private val click: (book: BookEntity) -> Unit,
         private val binding: ItemRecyclerBinding
-    ) :
-        RecyclerView.ViewHolder(binding.root) {
+    ) : RecyclerView.ViewHolder(binding.root) {
 
         fun bind(book: BookEntity) {
             with(binding){

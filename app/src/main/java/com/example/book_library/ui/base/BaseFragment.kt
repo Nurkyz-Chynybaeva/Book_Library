@@ -15,7 +15,6 @@ open class BaseFragment<viewModel : ViewModel, viewBinding: ViewBinding>(
 ) : Fragment() {
 
     protected lateinit var viewModel: viewModel
-
     private var _binding: viewBinding? = null
     protected val binding: viewBinding
         get() = _binding!!

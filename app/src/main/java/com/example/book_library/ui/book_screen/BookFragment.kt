@@ -1,11 +1,10 @@
 package com.example.book_library.ui.book_screen
 
 import android.os.Bundle
-import android.os.Handler
 import android.view.View
-import android.widget.Toast
 import com.example.book_library.data.models.BookEntity
 import com.example.book_library.databinding.FragmentBookBinding
+import com.example.book_library.extensions.showToast
 import com.example.book_library.ui.Event
 import com.example.book_library.ui.base.BaseFragment
 import dagger.hilt.android.AndroidEntryPoint
@@ -38,7 +37,9 @@ class BookFragment : BaseFragment<BookViewModel, FragmentBookBinding>(
         viewModel.event.observe(viewLifecycleOwner) {
             when (it) {
                 is Event.FetchedBook -> fillBook(it.bookE)
+                is Event.ShowToast -> showToast(getString(it.resId))
             }
+
         }
     }
 
@@ -55,31 +56,20 @@ class BookFragment : BaseFragment<BookViewModel, FragmentBookBinding>(
         binding.flContainer.addView(pdfViewPager)
     }
 
-    override fun onFailure(e: Exception?) {
-        Toast.makeText(requireContext(), "FAIL", Toast.LENGTH_SHORT).show()
-
-    }
+    override fun onFailure(e: Exception?){ showToast("Sorry there was an error") }
 
     private fun onProgress(){
         var progressStatus = 0
             Thread(Runnable {
                 while (progressStatus < 100){
-                    // update progress status
                     progressStatus +=1
-
-                    // sleep the thread for 100 milliseconds
                     Thread.sleep(100)
-
-                    // update the progress bar
                     binding.progressBar.progress = progressStatus
-
                 }
             }).start()
     }
 
-    override fun onProgressUpdate(progress: Int, total: Int) {
-
-    }
+    override fun onProgressUpdate(progress: Int, total: Int) {}
 
     companion object {
         const val KEY_ID = "key_id"

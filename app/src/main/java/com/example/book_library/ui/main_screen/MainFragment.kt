@@ -29,7 +29,6 @@ class MainFragment : BaseFragment<MainViewModel, FragmentMainBinding>(
     override fun onAttach(context: Context) {
         super.onAttach(context)
         listener = context as MediatorBetweenFragments
-
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -40,6 +39,7 @@ class MainFragment : BaseFragment<MainViewModel, FragmentMainBinding>(
         setUpViews()
         navigationDrawerFeatures()
         (activity as AppCompatActivity).setSupportActionBar(binding.toolbar)
+        setUpSearchView()
     }
 
     private fun setUpViews(){
@@ -47,7 +47,6 @@ class MainFragment : BaseFragment<MainViewModel, FragmentMainBinding>(
         adapter = BooksAdapter {
             listener.openFragment(BookFragment.newInstance(it.objectId))
         }
-
         recycler.adapter = adapter
         recycler.layoutManager = LinearLayoutManager(requireContext())
 
@@ -56,13 +55,15 @@ class MainFragment : BaseFragment<MainViewModel, FragmentMainBinding>(
         }
     }
 
+    private fun setUpSearchView(){
+        adapter.filter(binding.editToSearch.toString()
+        )
+    }
 
     private fun navigationDrawerFeatures() {
         with(binding) {
             toggle = ActionBarDrawerToggle(requireActivity(),
-                drawerLayout,
-                R.string.open,
-                R.string.close)
+            drawerLayout, R.string.open, R.string.close)
             drawerLayout.addDrawerListener(toggle)
             toggle.syncState()
 
@@ -75,7 +76,6 @@ class MainFragment : BaseFragment<MainViewModel, FragmentMainBinding>(
                     R.id.item2 -> {
                         listener.openFragment(TechnicBooksFragment())
                     }
-
                 }
                 true
             }

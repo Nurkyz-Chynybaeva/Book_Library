@@ -13,8 +13,6 @@ interface BooksDao {
     @Query("SELECT * FROM BookEntity")
     fun getAll(): LiveData<List<BookEntity>>
 
-
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insertList(booksList: List<BookEntity>)
-
 }

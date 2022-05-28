@@ -3,7 +3,6 @@ package com.example.book_library.ui.genres.technics_books
 import android.util.Log
 import androidx.lifecycle.LiveData
 import com.example.book_library.data.models.BookEntity
-import com.example.book_library.domain.use_cases.GetAllBooksUseCase
 import com.example.book_library.domain.use_cases.GetBookAsLiveDataUseCase
 import com.example.book_library.domain.use_cases.GetTechnicBooksUseCase
 import com.example.book_library.ui.base.BaseViewModel
@@ -28,9 +27,7 @@ class TechnicBooksViewModel @Inject constructor(
         compositeDisposable.add(
             getTechnicBooksUseCase()
                 .subscribe({
-
-                    Log.d("TAG", "get users")
-
+                    Log.d("TAG", "technic books")
                 }, {
                     Log.d("TAG", it.message ?: "error")
                 })

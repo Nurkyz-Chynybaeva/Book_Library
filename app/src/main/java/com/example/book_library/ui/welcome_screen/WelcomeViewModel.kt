@@ -6,6 +6,4 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 
 @HiltViewModel
 class WelcomeViewModel @Inject constructor(
-): BaseViewModel() {
-
-}
+): BaseViewModel()

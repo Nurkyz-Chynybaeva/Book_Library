@@ -15,10 +15,8 @@
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/appName"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/app_name"
-            android:textSize="22sp" />
+            style="@style/HeaderTxt"
+            android:text="@string/app_name" />
 
     </androidx.appcompat.widget.Toolbar>
 
@@ -46,15 +44,13 @@
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/txtWait"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
             android:text="@string/wait_please"
-            android:textColor="@color/black"
-            android:textSize="20dp"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
+            style="@style/BaseTxt"
             app:layout_constraintTop_toBottomOf="@id/progressBar" />
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.appcompat.widget.LinearLayoutCompat>

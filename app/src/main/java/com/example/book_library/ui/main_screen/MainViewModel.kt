@@ -26,13 +26,7 @@ class MainViewModel @Inject constructor(
      fun getAllBooks() {
         compositeDisposable.add(
             getAllBooksUseCase()
-                .subscribe({
-
-                    Log.d("TAG", "get users")
-
-                }, {
-                    Log.d("TAG", it.message ?: "error")
-                })
+                .subscribe()
         )
     }
 

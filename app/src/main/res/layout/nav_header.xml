@@ -7,25 +7,20 @@
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/appName"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:text="@string/app_name"
+        style="@style/HeaderTxt2"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
         android:paddingLeft="50dp"
         android:paddingTop="50dp"
-        android:text="@string/app_name"
-        android:textColor="@color/black"
-        android:textSize="35sp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        />
 
     <androidx.appcompat.widget.AppCompatTextView
         android:layout_marginTop="50dp"
         android:id="@+id/genders"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         android:text="@string/genres"
+        style="@style/BaseTxt"
         android:paddingLeft="50dp"
-        android:textColor="@color/black"
-        android:textSize="25sp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toBottomOf="@id/appName" />
 

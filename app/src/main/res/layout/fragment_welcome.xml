@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<androidx.appcompat.widget.LinearLayoutCompat
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/background"
@@ -16,22 +16,13 @@
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/txtLogin"
         android:text="@string/welcome"
-        android:textSize="29sp"
-        android:textColor="@color/black"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        />
+        style="@style/BaseTxt"
+        android:layout_marginTop="10dp" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:layout_marginTop="50dp"
         android:id="@+id/btnLogin"
-        android:layout_width="200dp"
-        android:layout_height="70dp"
-        android:background="#537AB1"
         android:text="@string/get_started"
-        android:textColor="@color/white"
-        android:textSize="18dp"
-        />
+        style="@style/BaseButton" />
 
 </androidx.appcompat.widget.LinearLayoutCompat>

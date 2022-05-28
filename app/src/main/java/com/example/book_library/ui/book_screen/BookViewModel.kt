@@ -8,7 +8,6 @@ import com.example.book_library.ui.Event
 import com.example.book_library.ui.base.BaseViewModel
 import dagger.hilt.android.lifecycle.HiltViewModel
 import io.reactivex.disposables.CompositeDisposable
-import java.util.*
 import javax.inject.Inject
 
 @HiltViewModel
@@ -17,16 +16,14 @@ class BookViewModel @Inject constructor(
 ) : BaseViewModel() {
     private val compositeDisposable: CompositeDisposable = CompositeDisposable()
 
-
     private var id: String = "key_id"
     fun setId(id: String) {
-        this.id = id ?: ""
+        this.id = id
     }
 
     private val _event = MutableLiveData<Event?>()
     val event: LiveData<Event?>
         get() = _event
-
 
     fun fetchBook() {
         compositeDisposable.add(

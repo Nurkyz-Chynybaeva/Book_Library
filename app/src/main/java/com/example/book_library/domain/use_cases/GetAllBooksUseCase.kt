@@ -29,7 +29,5 @@ class GetAllBooksUseCase @Inject constructor(
                it
             }
             .observeOn(AndroidSchedulers.mainThread())
-
     }
 }
-

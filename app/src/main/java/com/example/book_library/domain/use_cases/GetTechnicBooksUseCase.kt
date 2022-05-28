@@ -29,6 +29,5 @@ class GetTechnicBooksUseCase @Inject constructor(
                 it
             }
             .observeOn(AndroidSchedulers.mainThread())
-
     }
 }

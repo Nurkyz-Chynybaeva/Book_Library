@@ -6,7 +6,6 @@ import com.example.book_library.data.models.BookEntity
 
 @Database(entities = [BookEntity::class], version = 7)
 abstract class AppDatabase: RoomDatabase()  {
-
     abstract fun booksDao(): BooksDao
 
     companion object {
