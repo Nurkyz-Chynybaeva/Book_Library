@@ -7,17 +7,16 @@ import retrofit2.http.Path
 import retrofit2.http.Query
 
 interface BooksApi {
+
     @GET("api/data/book_library")
     fun getBooks(
         @Query("pageSize") size: Int = 100
     ): Single<List<BookDto>>
 
-
-    @GET("api/data/technic_books")
+    @GET("api/data/book_library?where=genres%3D'detective'")
     fun getTechnicBooks(
-        @Query("pageSize") size: Int = 100
-    ): Single<List<BookDto>>
-
+        @Query("pageSize") size: Int = 2
+    ):Single<List<BookDto>>
 
     @GET("api/data/book_library/{objectId}")
     fun getBookById(@Path("objectId") objectId: String): Single<BookDto>
