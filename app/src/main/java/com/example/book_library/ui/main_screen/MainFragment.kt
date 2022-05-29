@@ -12,7 +12,6 @@ import com.example.book_library.databinding.FragmentMainBinding
 import com.example.book_library.ui.MediatorBetweenFragments
 import com.example.book_library.ui.base.BaseFragment
 import com.example.book_library.ui.book_screen.BookFragment
-import com.example.book_library.ui.genres.technics_books.TechnicBooksFragment
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -74,7 +73,7 @@ class MainFragment : BaseFragment<MainViewModel, FragmentMainBinding>(
 //                       openFragment2(MainFragment())
                     }
                     R.id.item2 -> {
-                        listener.openFragment(TechnicBooksFragment())
+//                        listener.openFragment()
                     }
                 }
                 true

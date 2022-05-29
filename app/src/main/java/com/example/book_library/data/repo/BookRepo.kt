@@ -15,7 +15,7 @@ class BookRepo @Inject constructor(
         return booksApi.getBooks()
     }
 
-    fun getTechnicBooks(): Single<List<BookDto>>{
+    fun getTechnicBooks(): Single<List<BookEntity>>{
         return booksApi.getTechnicBooks()
     }
 
