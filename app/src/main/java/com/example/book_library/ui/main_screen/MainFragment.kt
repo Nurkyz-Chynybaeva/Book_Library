@@ -6,6 +6,7 @@ import android.view.MenuItem
 import android.view.View
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.widget.addTextChangedListener
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -40,7 +41,6 @@ class MainFragment : BaseFragment<MainViewModel, FragmentMainBinding>(
         setUpViews()
         navigationDrawerFeatures()
         (activity as AppCompatActivity).setSupportActionBar(binding.toolbar)
-        setUpSearchView()
     }
 
     private fun setUpViews(){
@@ -55,11 +55,11 @@ class MainFragment : BaseFragment<MainViewModel, FragmentMainBinding>(
         binding.swipeToRefresh.setOnRefreshListener {
             viewModel.getAllBooks()
         }
-    }
-
-    private fun setUpSearchView(){
-        adapter.filter(binding.editToSearch.toString()
-        )
+        binding.editToSearch.addTextChangedListener {
+            it?.let {
+                adapter.filter(it.toString())
+            }
+        }
     }
 
     private fun navigationDrawerFeatures() {

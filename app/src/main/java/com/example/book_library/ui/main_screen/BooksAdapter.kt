@@ -24,8 +24,8 @@ class BooksAdapter(private val click: (book: BookEntity) -> Unit) :
         list = if(text.isEmpty())
             completeList
         else
-            list.filter{
-                it.name?.contains(text) ?: false
+            completeList.filter{
+                it.name?.contains(text, true) ?: false
             }
         notifyDataSetChanged()
     }
