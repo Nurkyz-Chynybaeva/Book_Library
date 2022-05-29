@@ -8,7 +8,7 @@ data class BookDto(
     var objectId: String,
     var id: Int? = null,
     var name: String? = null,
-    var surname: String? = null,
+    var author: String? = null,
     var image: String? = null,
     var book: String? = null
 )

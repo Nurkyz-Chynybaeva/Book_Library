@@ -6,7 +6,9 @@ import android.view.MenuItem
 import android.view.View
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.example.book_library.R
 import com.example.book_library.databinding.FragmentMainBinding
 import com.example.book_library.ui.MediatorBetweenFragments
@@ -48,6 +50,7 @@ class MainFragment : BaseFragment<MainViewModel, FragmentMainBinding>(
         }
         recycler.adapter = adapter
         recycler.layoutManager = LinearLayoutManager(requireContext())
+        recycler.addItemDecoration(DividerItemDecoration(requireContext(), RecyclerView.VERTICAL))
 
         binding.swipeToRefresh.setOnRefreshListener {
             viewModel.getAllBooks()

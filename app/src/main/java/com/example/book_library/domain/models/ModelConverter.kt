@@ -9,18 +9,7 @@ fun BookDto.toBookEntity(): BookEntity {
         objectId = this.objectId,
         id = this.id,
         name = this.name,
-        surname = this.surname,
-        image = this.image,
-        book = this.book
-    )
-}
-fun BookEntity.toBookEntityy(): BookEntity {
-
-    return BookEntity(
-        objectId = this.objectId,
-        id = this.id,
-        name = this.name,
-        surname = this.surname,
+        author = this.author,
         image = this.image,
         book = this.book
     )

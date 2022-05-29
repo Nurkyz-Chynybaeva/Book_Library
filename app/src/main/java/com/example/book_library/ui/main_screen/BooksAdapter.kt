@@ -53,11 +53,14 @@ class BooksAdapter(private val click: (book: BookEntity) -> Unit) :
 
         fun bind(book: BookEntity) {
             with(binding){
-                titleItem.text = book.name
 
                 Glide.with(itemView.context)
                 .load(book.image)
                 .into(imgItem)
+
+                titleItem.text = book.name
+
+                authorItem.text = book.author
             }
 
             itemView.setOnClickListener {
