@@ -15,9 +15,9 @@ class BookRepo @Inject constructor(
         return booksApi.getBooks()
     }
 
-    fun getTechnicBooks(): Single<List<BookEntity>>{
-        return booksApi.getTechnicBooks()
-    }
+//    fun getTechnicBooks(): Single<List<BookEntity>>{
+//        return booksApi.getTechnicBooks()
+//    }
 
     fun insertList(characterList: List<BookEntity>) {
         booksDao.insertList(characterList)

@@ -9,16 +9,16 @@ import retrofit2.http.Query
 
 interface BooksApi {
 
-    @GET("api/data/book_library")
+    @GET("api/data/name")
     fun getBooks(
-        @Query("pageSize") size: Int = 100
+        @Query("pageSize") size: Int = 20
     ): Single<List<BookDto>>
 
-    @GET("api/data/book_library?where=genres%3D'detective'")
-    fun getTechnicBooks(
-        @Query("pageSize") size: Int = 2
-    ):Single<List<BookEntity>>
+//    @GET("api/data/book_library?where=genres%3D'detective'")
+//    fun getTechnicBooks(
+//        @Query("pageSize") size: Int = 2
+//    ):Single<List<BookEntity>>
 
-    @GET("api/data/book_library/{objectId}")
+    @GET("api/data/name/{objectId}")
     fun getBookById(@Path("objectId") objectId: String): Single<BookDto>
 }

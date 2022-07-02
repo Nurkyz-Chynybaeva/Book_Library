@@ -7,7 +7,6 @@ fun BookDto.toBookEntity(): BookEntity {
 
     return BookEntity(
         objectId = this.objectId,
-        id = this.id,
         name = this.name,
         author = this.author,
         image = this.image,

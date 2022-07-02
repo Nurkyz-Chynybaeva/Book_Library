@@ -10,8 +10,8 @@ data class Response(
 @Entity
 data class BookEntity(
     @PrimaryKey
-    var objectId: String,
     var id: Int? = null,
+    var objectId: String,
     var name: String? = null,
     var author: String? = null,
     var image: String? = null,

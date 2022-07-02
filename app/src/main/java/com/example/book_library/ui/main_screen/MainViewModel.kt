@@ -3,8 +3,8 @@ package com.example.book_library.ui.main_screen
 import android.util.Log
 import androidx.lifecycle.LiveData
 import com.example.book_library.data.models.BookEntity
-import com.example.book_library.domain.use_cases.GetBookAsLiveDataUseCase
 import com.example.book_library.domain.use_cases.GetAllBooksUseCase
+import com.example.book_library.domain.use_cases.GetBookAsLiveDataUseCase
 import com.example.book_library.ui.base.BaseViewModel
 import dagger.hilt.android.lifecycle.HiltViewModel
 import io.reactivex.disposables.CompositeDisposable
@@ -26,7 +26,11 @@ class MainViewModel @Inject constructor(
      fun getAllBooks() {
         compositeDisposable.add(
             getAllBooksUseCase()
-                .subscribe()
+                .subscribe({
+                    Log.e("tag", "sucsess")
+                }, {
+                    Log.e("tag", "error main view model")
+                })
         )
     }
 }

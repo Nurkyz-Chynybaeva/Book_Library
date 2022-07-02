@@ -59,7 +59,6 @@ class BooksAdapter(private val click: (book: BookEntity) -> Unit) :
                 .into(imgItem)
 
                 titleItem.text = book.name
-
                 authorItem.text = book.author
             }
 

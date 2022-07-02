@@ -20,7 +20,7 @@ android {
 
     buildTypes {
         all {
-            buildConfigField 'String', 'BASE_URL', '"https://sizablewalk.backendless.app/"'
+            buildConfigField 'String', 'BASE_URL', '"https://spanglyneedle.backendless.app/"'
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
